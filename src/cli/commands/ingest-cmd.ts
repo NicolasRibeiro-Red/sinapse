@@ -1,6 +1,7 @@
 // sinapse ingest — Full pipeline: scan → parse → graph → pagerank → DNA
 
 import { Command } from 'commander';
+import { resolve } from 'node:path';
 import { ensureDirectoryStructure, detectProject, ensureProjectNamespace } from '../../core/namespace.js';
 import { scanProject } from '../../ingest/file-scanner.js';
 import { buildImportGraph } from '../../ingest/import-graph.js';
@@ -14,11 +15,12 @@ export const ingestCommand = new Command('ingest')
   .description('Parse project and generate Project DNA')
   .argument('[path]', 'Project path', process.cwd())
   .option('--force', 'Force re-parse even if cached')
-  .action(async (projectPath, opts, cmd) => {
+  .action(async (rawPath, opts, cmd) => {
     const globalOpts = cmd.parent?.opts() ?? {};
     const json = globalOpts.json ?? false;
     const verbose = globalOpts.verbose ?? false;
     const force = opts.force ?? false;
+    const projectPath = resolve(rawPath);
 
     ensureDirectoryStructure();
     const project = detectProject(projectPath);
