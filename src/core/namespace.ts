@@ -1,7 +1,8 @@
 // Sinapse — Namespace Manager
 // Directory structure, project detection, agent namespaces
 
-import { existsSync, mkdirSync, readdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync } from 'node:fs';
+import { join, basename } from 'node:path';
 import { execSync } from 'node:child_process';
 import {
   getBasePath, getHotPath, getGlobalPath, getArchivedPath,
@@ -88,10 +89,10 @@ export function detectProject(cwd?: string): { name: string; slug: string; remot
   } catch {
     // Try package.json
     try {
-      const pkgPath = require('node:path').join(dir, 'package.json');
+      const pkgPath = join(dir, 'package.json');
       if (existsSync(pkgPath)) {
-        const pkg = JSON.parse(require('node:fs').readFileSync(pkgPath, 'utf-8'));
-        const name = pkg.name || require('node:path').basename(dir);
+        const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'));
+        const name = pkg.name || basename(dir);
         return { name, slug: slugify(name), remote: null };
       }
     } catch {

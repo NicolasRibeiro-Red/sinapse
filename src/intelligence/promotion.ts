@@ -23,7 +23,7 @@ export function findPromotionCandidates(memories: SinapseMemory[]): PromotionCan
 
   const candidates: PromotionCandidate[] = [];
 
-  for (const [_, mems] of groups) {
+  for (const [, mems] of groups) {
     if (mems.length < 2) continue; // Need at least 2 for pattern
 
     const occurrences = mems.length;

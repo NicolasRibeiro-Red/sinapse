@@ -3,7 +3,7 @@
 import { Command } from 'commander';
 import { initDb, upsertMemoryBatch, closeDb } from '../../core/db.js';
 import { scanAllMemoryFiles, readMemory } from '../../core/memory-store.js';
-import { memoryToRow, contentHash } from '../../core/frontmatter.js';
+import { memoryToRow } from '../../core/frontmatter.js';
 import { getMetaDbPath } from '../../core/paths.js';
 import { ensureDirectoryStructure } from '../../core/namespace.js';
 

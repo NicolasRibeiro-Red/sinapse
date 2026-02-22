@@ -5,7 +5,6 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { serializeMemory } from '../../src/core/frontmatter.js';
-import { runConsolidationPipeline } from '../../src/core/consolidation.js';
 import type { SinapseMemory, ConsolidationReport } from '../../src/types/index.js';
 
 const TMP = join(process.cwd(), 'tests', '_tmp_e2e_consolidation');

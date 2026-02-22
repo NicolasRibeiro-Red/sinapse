@@ -4,7 +4,7 @@
 import type { HealthReport, HealthBreakdown, SinapseMemory } from '../types/index.js';
 import { HealthRange, MemoryStatus } from '../types/index.js';
 import { DEFAULT_CONFIG } from '../types/config.js';
-import { scanAllMemoryFiles, readMemory, listMemories } from './memory-store.js';
+import { listMemories } from './memory-store.js';
 
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -61,7 +61,7 @@ export function calculateHealth(
   }
 
   // Count duplicates (titles appearing 2+ times)
-  for (const [_, count] of titleMap) {
+  for (const [, count] of titleMap) {
     if (count > 1) {
       dupeCount += count - 1;
     }

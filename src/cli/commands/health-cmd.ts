@@ -1,7 +1,7 @@
 // sinapse health — Health score with breakdown
 
 import { Command } from 'commander';
-import { calculateHealth, healthGauge, healthRangeLabel } from '../../core/health.js';
+import { calculateHealth, healthGauge } from '../../core/health.js';
 import { ensureDirectoryStructure } from '../../core/namespace.js';
 
 export const healthCommand = new Command('health')

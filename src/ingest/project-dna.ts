@@ -5,7 +5,7 @@ import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { execSync } from 'node:child_process';
 import type { ProjectDNA } from '../types/index.js';
-import { getProjectPath, getProjectDnaPath } from '../core/paths.js';
+import { getProjectDnaPath } from '../core/paths.js';
 import { slugify, getGitHead } from '../core/namespace.js';
 
 export function gatherProjectMetadata(projectPath: string): Partial<ProjectDNA> {

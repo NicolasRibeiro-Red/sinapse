@@ -5,7 +5,7 @@ import { Command } from 'commander';
 import { calculateHealth, healthGauge, getHealthRange, healthRangeLabel } from '../../core/health.js';
 import { listMemories } from '../../core/memory-store.js';
 import { ensureDirectoryStructure, listProjectNamespaces } from '../../core/namespace.js';
-import { initDb, getHealthHistory, getMemoryStats, closeDb } from '../../core/db.js';
+import { initDb, getHealthHistory, closeDb } from '../../core/db.js';
 import { getMetaDbPath, getProjectDnaPath } from '../../core/paths.js';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 

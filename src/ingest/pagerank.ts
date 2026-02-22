@@ -2,7 +2,7 @@
 // Simplified PageRank over import graph
 // Damping: 0.85, Max iterations: 50, Convergence: 1e-6
 
-import type { ImportGraph, CodeGraphNode } from '../types/index.js';
+import type { ImportGraph } from '../types/index.js';
 import { DEFAULT_CONFIG } from '../types/config.js';
 
 export interface PageRankResult {

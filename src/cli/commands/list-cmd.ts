@@ -4,7 +4,6 @@ import { Command } from 'commander';
 import { listMemories } from '../../core/memory-store.js';
 import { ensureDirectoryStructure } from '../../core/namespace.js';
 import type { MemoryType, MemoryStatus } from '../../types/index.js';
-import { getImportanceLabel } from '../../core/importance.js';
 
 export const listCommand = new Command('list')
   .description('List memories with optional filters')

@@ -2,7 +2,6 @@
 // Builds directed graph: nodes=files, edges=imports
 
 import { resolve, dirname, join } from 'node:path';
-import { existsSync } from 'node:fs';
 import type { ScannedFile } from './file-scanner.js';
 import { parseFile } from './parser.js';
 import type { CodeGraphNode, CodeGraphEdge, ImportGraph } from '../types/index.js';

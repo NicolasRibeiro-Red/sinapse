@@ -1,10 +1,10 @@
 // Sinapse — Memory Store
 // High-level operations for memory management (file + SQLite)
 
-import { readFileSync, writeFileSync, readdirSync, unlinkSync, renameSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, unlinkSync, existsSync, mkdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
-import { parseMemoryFile, serializeMemory, contentHash, memoryToRow } from './frontmatter.js';
-import { getHotPath, getArchivedPath, getGlobalPath, getAgentPath, getProjectMemoriesPath } from './paths.js';
+import { parseMemoryFile, serializeMemory } from './frontmatter.js';
+import { getHotPath, getArchivedPath, getAgentPath, getProjectMemoriesPath } from './paths.js';
 import type { SinapseMemory, MemoryFilter, MemoryCreateInput } from '../types/index.js';
 import { MemoryStatus } from '../types/index.js';
 import { generateMemoryId } from './frontmatter.js';

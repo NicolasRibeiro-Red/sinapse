@@ -14,7 +14,7 @@ export interface ScannedFile {
   size: number;
 }
 
-export function scanProject(projectPath: string, options?: { force?: boolean }): ScannedFile[] {
+export function scanProject(projectPath: string, _options?: { force?: boolean }): ScannedFile[] {
   const excludePatterns = DEFAULT_CONFIG.ingest.excludePatterns;
   const gitignorePatterns = loadGitignore(projectPath);
   const allExclude = [...excludePatterns, ...gitignorePatterns];

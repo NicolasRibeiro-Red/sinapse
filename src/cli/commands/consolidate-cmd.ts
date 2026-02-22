@@ -7,7 +7,7 @@ import { buildGraphIndex, saveGraphIndex } from '../../core/graph.js';
 import { ensureDirectoryStructure } from '../../core/namespace.js';
 import { initDb, insertConsolidationRun, insertHealthSnapshot, closeDb } from '../../core/db.js';
 import { getMetaDbPath } from '../../core/paths.js';
-import type { ConsolidationStep } from '../../types/index.js';
+
 
 export const consolidateCommand = new Command('consolidate')
   .description('Run full consolidation pipeline (decay + gc + graph + health)')

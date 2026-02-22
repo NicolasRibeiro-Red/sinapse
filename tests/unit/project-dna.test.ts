@@ -1,8 +1,8 @@
 // Tests for project-dna module
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { mkdirSync, writeFileSync, rmSync, existsSync } from 'node:fs';
+import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
-import { gatherProjectMetadata, generateDNATemplate, saveDNA } from '../../src/ingest/project-dna.js';
+import { gatherProjectMetadata, generateDNATemplate } from '../../src/ingest/project-dna.js';
 
 const TMP = join(process.cwd(), 'tests', '_tmp_dna');
 

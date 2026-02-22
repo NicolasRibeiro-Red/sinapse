@@ -2,10 +2,10 @@
 // Builds graph index from memories and verifies traversal
 
 import { describe, it, expect } from 'vitest';
-import { buildGraphIndex, getConnections, saveGraphIndex, loadGraphIndex } from '../../src/core/graph.js';
+import { buildGraphIndex, getConnections } from '../../src/core/graph.js';
 import type { SinapseMemory } from '../../src/types/index.js';
-import { mkdirSync, rmSync } from 'node:fs';
-import { join } from 'node:path';
+
+
 
 function makeMem(id: string, links: string[] = [], supersedes?: string): SinapseMemory {
   const now = new Date().toISOString();

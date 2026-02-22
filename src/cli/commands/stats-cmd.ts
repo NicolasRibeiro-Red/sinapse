@@ -1,8 +1,8 @@
 // sinapse stats — Aggregate metrics
 
 import { Command } from 'commander';
-import { initDb, getMemoryStats, closeDb } from '../../core/db.js';
-import { getMetaDbPath } from '../../core/paths.js';
+
+
 import { ensureDirectoryStructure } from '../../core/namespace.js';
 import { listMemories } from '../../core/memory-store.js';
 
