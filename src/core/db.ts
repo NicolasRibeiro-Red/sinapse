@@ -10,7 +10,8 @@ import type { MemoryRow, HealthSnapshotRow, ConsolidationRunRow, CodeGraphNodeRo
 import type { MemoryFilter } from '../types/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SCHEMA_PATH = join(__dirname, '..', '..', 'src', 'core', 'schema.sql');
+const DIST_SCHEMA_PATH = join(__dirname, 'schema.sql');
+const SRC_SCHEMA_PATH = join(__dirname, '..', '..', 'src', 'core', 'schema.sql');
 
 let _db: Database.Database | null = null;
 
@@ -30,17 +31,14 @@ export function initDb(dbPath: string): Database.Database {
   db.pragma('synchronous = NORMAL');
   db.pragma('foreign_keys = ON');
 
-  // Try multiple schema paths (dev vs built)
+  // Try dist/ first (npm linked), then src/ (dev)
   let schemaSQL: string;
-  if (existsSync(SCHEMA_PATH)) {
-    schemaSQL = readFileSync(SCHEMA_PATH, 'utf-8');
+  if (existsSync(DIST_SCHEMA_PATH)) {
+    schemaSQL = readFileSync(DIST_SCHEMA_PATH, 'utf-8');
+  } else if (existsSync(SRC_SCHEMA_PATH)) {
+    schemaSQL = readFileSync(SRC_SCHEMA_PATH, 'utf-8');
   } else {
-    const altPath = join(__dirname, 'schema.sql');
-    if (existsSync(altPath)) {
-      schemaSQL = readFileSync(altPath, 'utf-8');
-    } else {
-      throw new Error(`Schema file not found at ${SCHEMA_PATH} or ${altPath}`);
-    }
+    throw new Error(`Schema file not found at ${DIST_SCHEMA_PATH} or ${SRC_SCHEMA_PATH}`);
   }
 
   db.exec(schemaSQL);

@@ -14,6 +14,7 @@ import { exportCommand } from './commands/export-cmd.js';
 import { ingestCommand } from './commands/ingest-cmd.js';
 import { dashboardCommand } from './commands/dashboard-cmd.js';
 import { graphVizCommand } from './commands/graph-viz-cmd.js';
+import { saveCommand } from './commands/save-cmd.js';
 
 const program = new Command();
 
@@ -36,5 +37,6 @@ program.addCommand(exportCommand);
 program.addCommand(ingestCommand);
 program.addCommand(dashboardCommand);
 program.addCommand(graphVizCommand);
+program.addCommand(saveCommand);
 
 program.parse();

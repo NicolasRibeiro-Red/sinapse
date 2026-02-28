@@ -9,7 +9,7 @@
     "sinapse": "./bin/sinapse.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node -e \"require('fs').copyFileSync('src/core/schema.sql','dist/core/schema.sql')\"",
     "dev": "tsc --watch",
     "test": "vitest run",
     "test:watch": "vitest",

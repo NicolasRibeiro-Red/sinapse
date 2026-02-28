@@ -21,7 +21,7 @@ const REQUIRED_DIRS = [
   getProjectsPath,
 ];
 
-const DEFAULT_AGENTS = ['jarvis', 'dev', 'qa', 'architect'];
+const DEFAULT_AGENTS = ['pandora', 'dev', 'qa', 'architect', 'pm', 'devops'];
 
 export function ensureDirectoryStructure(): void {
   for (const getDir of REQUIRED_DIRS) {
